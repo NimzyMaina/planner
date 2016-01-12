@@ -1,5 +1,10 @@
 <?php
 
+require_once(dirname(__FILE__).'/../vendor/autoload.php');//autoload packages
+
+        $dotenv = new Dotenv\Dotenv(__DIR__.'/..');
+        $dotenv->load();
+
  function get_domain(){
 	//$domain = $_SERVER['HTTP_HOST'];
 	return $_SERVER['HTTP_HOST'];
@@ -66,3 +71,7 @@
      
     return $data;
 }
+
+    function asset ($data){
+        return "..".$data;
+    }
