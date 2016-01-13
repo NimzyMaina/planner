@@ -5,15 +5,15 @@ require 'vendor/autoload.php';
 // $cm = new Cmautoload;
 // echo $cm->classmap();
 
-$user = new User;
+$db = new Database();
+//$db = $database->getConnection();
+
+$user = new User($db);
 //echo $user->greet();
 
 //echo '<br>';
 
 //echo get_domain();
-
-$db = new Database();
-//$db = $database->getConnection();
 
 // echo asset("/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css");
 

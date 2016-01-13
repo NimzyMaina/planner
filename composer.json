@@ -2,7 +2,8 @@
     "name": "nimzy/planner",
     "description": "Wedding planning system",
     "require": {
-        "vlucas/phpdotenv": "^2.2"
+        "vlucas/phpdotenv": "^2.2",
+        "phpmailer/phpmailer": "^5.2"
     },
     "license": "MIT",
     "authors": [
