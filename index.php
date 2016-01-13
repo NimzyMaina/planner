@@ -31,7 +31,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Perfection a Wedding Category Flat bootstrap Responsive website Template | Home :: w3layouts</title>
+<title>The Planner</title>
 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
 <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
 <!-- Custom Theme files -->
