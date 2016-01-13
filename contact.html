@@ -1,27 +1,3 @@
-<?php
-
-require 'vendor/autoload.php';
-
-// $cm = new Cmautoload;
-// echo $cm->classmap();
-
-$user = new User;
-//echo $user->greet();
-
-//echo '<br>';
-
-//echo get_domain();
-
-$db = new Database();
-//$db = $database->getConnection();
-
-// echo asset("/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css");
-
-// exit;
-
-?>
-
-
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -31,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Perfection a Wedding Category Flat bootstrap Responsive website Template | Home :: w3layouts</title>
+<title>Perfection a Wedding Category Flat bootstrap Responsive website Template | Contact :: w3layouts</title>
 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
 <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
 <!-- Custom Theme files -->
@@ -84,7 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="collapse navbar-collapse navbar-left" id="bs-example-navbar-collapse-1">
 						<div class="top-nav">
 							<ul class="nav navbar-nav navbar-left cl-effect-16">
-								<li class="first"><a href="index.html" class="active">Home</a></li>
+								<li class="first"><a href="index.html" data-hover="Home">Home</a></li>
 								<li><a href="about.html" data-hover="About">About</a></li>		
 								<li><a href="#" data-hover="Services" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<span class="caret"></span></a>
 									<ul class="dropdown-menu">
@@ -95,7 +71,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</li>
 								<li><a href="gallery.html" data-hover="Gallery">Gallery</a></li>
 								<li><a href="typo.html" data-hover="Typo">Typo</a></li>		
-								<li><a href="contact.html" data-hover="Contact">Contact</a></li>
+								<li><a href="contact.html" class="active" >Contact</a></li>
 							</ul>								
 						</div>
 					</div>
@@ -106,98 +82,49 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="bnr-text">
 			<div class="container">
-				<h1><a href="index.html"> The Planner </a></h1>
-				<p style="color:#FC4A46;">Perfect wedding planning & fresh ideas for your wedding</p>
+				<h1><a href="index.html"> Perfection </a></h1>
+				<p>Perfect wedding planning & fresh ideas for your wedding</p>
 			</div>
 		</div>
 	</div>
 	<!--//banner-->
-	<div class="banner-bottom">
+	<!--contact-->
+	<div class="contact">
 		<div class="container">
-			<h3 class="title">Welcome To Our Site</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus erat sapien, euismod non velit at, finibus interdum magna. Donec maximus diam quis mi aliquam tincidunt. Sed vulputate risus sapien, sollicitudin pharetra leo accumsan sed. Cras rhoncus sapien ac metus vehicula, consequat posuere enim finibus. </p>
-			<img src="images/img1.jpg" class="img-responsive" alt=""/>
-			<p class="btm-text"><span>"</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus erat sapien, euismod non velit at, finibus interdum magna. Donec maximus diam quis mi aliquam tincidunt. Sed vulputate risus sapien, sollicitudin pharetra leo accumsan sed. Cras rhoncus sapien ac metus vehicula, consequat posuere enim finibus.<span>"</span></p>			
-		</div>
-	</div>
-	<!--slider-->
-	<div class="slider"> 
-		<div class="container">
-		<div class="banner-title"> 
-			<!-- banner-text Slider starts Here -->
-			<script src="js/responsiveslides.min.js"></script>
-			 <script>
-				// You can also use "$(window).load(function() {"
-					$(function () {
-					// Slideshow 3
-						$("#slider3").responsiveSlides({
-						auto: true,
-						pager:false,
-						nav:true,
-						speed: 500,
-						namespace: "callbacks",
-						before: function () {
-						$('.events').append("<li>before event fired.</li>");
-						},
-						after: function () {
-							$('.events').append("<li>after event fired.</li>");
-						}
-					});	
-				});
-			</script>
-			<!--//End-slider-script -->
-			<div  id="top" class="callbacks_container">
-				<ul class="rslides" id="slider3">
-					<li>
-						<img src="images/img2.jpg" class="img-responsive" alt=""/>
-					</li>
-					<li>
-						<img src="images/img3.jpg" class="img-responsive" alt=""/>
-					</li>
-					<li>
-						<img src="images/img4.jpg" class="img-responsive" alt=""/>
-					</li>
-				</ul>	
-			</div>	
-		</div>
-		</div>
-	</div>
-	<!--//slider-->
-	<!--popular-->
-	<div class="popular">
-		<div class="container">
-			<h3 class="title" >Popular</h3>
-			<div class="col-md-5 popular-left">
-				<img src="images/img5.jpg" class="img-responsive" alt=""/>
-			</div>
-			<div class="col-md-7 popular-right">
-				<div class="popular-grids">
-					<div class="col-md-4 popular-text">
-						<img src="images/img6.jpg" class="img-responsive" alt=""/>
-					</div>
-					<div class="col-md-8 popular-text pplr-right cl-effect-1">
-						<h4>Donec maximus diam quisi</h4>
-						<p> Vivamus erat sapien, euismod non velit at, finibus interdum magna. Sed vulputate risus sapien consequat posuere enim finibus. </p>
-						<a class="more cl-effect-1" href="#">Read More</a>
-					</div>
-					<div class="clearfix"> </div>
+			<div class="contact-grids">
+				<div class="col-md-8 map">
+					<h3 class="title">How to find us</h3>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.182370726!2d-0.10159865000000001!3d51.52864165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C+UK!5e0!3m2!1sen!2sin!4v1433744055746"></iframe>
 				</div>
-				<div class="popular-grids">
-					<div class="col-md-4 popular-text">
-						<img src="images/img7.jpg" class="img-responsive" alt=""/>
-					</div>
-					<div class="col-md-8 popular-text pplr-right cl-effect-1">
-						<h4>Donec maximus diam quisi</h4>
-						<p> Vivamus erat sapien, euismod non velit at, finibus interdum magna. Sed vulputate risus sapien consequat posuere enim finibus. </p>
-						<a class="more" href="#">Read More</a>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
+				<div class="col-md-4 address">
+					<h3 class="title">Contact info</h3>
+					<p class="cnt-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit,sheets containing Lorem Ipsum passages sed do </p>
+					<p>Eiusmod Tempor inc</p>
+					<p>9560 St Dolor,London</p>
+					<p>Telephone : +2 800 544 6035</p>
+					<p>FAX : +1 800 889 4444</p>
+					<p>Email : <a href="mailto:example@mail.com">mail@example.com</a></p>
+				</div>					
+				<div class="clearfix"> </div>	
 			</div>
-			<div class="clearfix"> </div>
-		</div>
+			<div class=" contact-form">
+				<h3 class="title">Contact form</h3>
+				<form>
+					<div class="col-md-6 form-grids">
+						<input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+						<input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+						<input type="text" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
+					</div>
+					<div class="col-md-6 form-grids">
+						<textarea onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>	
+						<input type="submit" value="Submit">
+					</div>
+					<div class="clearfix"> </div>					
+				</form>
+			</div>
+		</div>		
 	</div>
-	<!--//popular-->
+	<!--//contact-->
 	<!--footer-->
 	<div class="footer">
 		<div class="container">
@@ -242,7 +169,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<p>Copyright © 2015 Perfection. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>					
 		</div>
 	</div>
-	<!--//footer-->		
+	<!--//footer-->
 	<!--smooth-scrolling-of-move-up-->
 	<script type="text/javascript">
 		$(document).ready(function() {

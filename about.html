@@ -1,27 +1,3 @@
-<?php
-
-require 'vendor/autoload.php';
-
-// $cm = new Cmautoload;
-// echo $cm->classmap();
-
-$user = new User;
-//echo $user->greet();
-
-//echo '<br>';
-
-//echo get_domain();
-
-$db = new Database();
-//$db = $database->getConnection();
-
-// echo asset("/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css");
-
-// exit;
-
-?>
-
-
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -31,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Perfection a Wedding Category Flat bootstrap Responsive website Template | Home :: w3layouts</title>
+<title>Perfection a Wedding Category Flat bootstrap Responsive website Template | About :: w3layouts</title>
 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
 <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
 <!-- Custom Theme files -->
@@ -84,8 +60,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="collapse navbar-collapse navbar-left" id="bs-example-navbar-collapse-1">
 						<div class="top-nav">
 							<ul class="nav navbar-nav navbar-left cl-effect-16">
-								<li class="first"><a href="index.html" class="active">Home</a></li>
-								<li><a href="about.html" data-hover="About">About</a></li>		
+								<li class="first"><a href="index.html" data-hover="Home">Home</a></li>
+								<li><a href="about.html" class="active">About</a></li>		
 								<li><a href="#" data-hover="Services" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<span class="caret"></span></a>
 									<ul class="dropdown-menu">
 										<li><a href="services.html">Services1</a></li>
@@ -106,98 +82,139 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="bnr-text">
 			<div class="container">
-				<h1><a href="index.html"> The Planner </a></h1>
-				<p style="color:#FC4A46;">Perfect wedding planning & fresh ideas for your wedding</p>
+				<h1><a href="index.html"> Perfection </a></h1>
+				<p>Perfect wedding planning & fresh ideas for your wedding</p>
 			</div>
 		</div>
 	</div>
 	<!--//banner-->
-	<div class="banner-bottom">
+	<!--about-->
+	<div class="about">
 		<div class="container">
-			<h3 class="title">Welcome To Our Site</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus erat sapien, euismod non velit at, finibus interdum magna. Donec maximus diam quis mi aliquam tincidunt. Sed vulputate risus sapien, sollicitudin pharetra leo accumsan sed. Cras rhoncus sapien ac metus vehicula, consequat posuere enim finibus. </p>
-			<img src="images/img1.jpg" class="img-responsive" alt=""/>
-			<p class="btm-text"><span>"</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus erat sapien, euismod non velit at, finibus interdum magna. Donec maximus diam quis mi aliquam tincidunt. Sed vulputate risus sapien, sollicitudin pharetra leo accumsan sed. Cras rhoncus sapien ac metus vehicula, consequat posuere enim finibus.<span>"</span></p>			
-		</div>
-	</div>
-	<!--slider-->
-	<div class="slider"> 
-		<div class="container">
-		<div class="banner-title"> 
-			<!-- banner-text Slider starts Here -->
-			<script src="js/responsiveslides.min.js"></script>
-			 <script>
-				// You can also use "$(window).load(function() {"
-					$(function () {
-					// Slideshow 3
-						$("#slider3").responsiveSlides({
-						auto: true,
-						pager:false,
-						nav:true,
-						speed: 500,
-						namespace: "callbacks",
-						before: function () {
-						$('.events').append("<li>before event fired.</li>");
-						},
-						after: function () {
-							$('.events').append("<li>after event fired.</li>");
-						}
-					});	
-				});
-			</script>
-			<!--//End-slider-script -->
-			<div  id="top" class="callbacks_container">
-				<ul class="rslides" id="slider3">
-					<li>
-						<img src="images/img2.jpg" class="img-responsive" alt=""/>
-					</li>
-					<li>
-						<img src="images/img3.jpg" class="img-responsive" alt=""/>
-					</li>
-					<li>
-						<img src="images/img4.jpg" class="img-responsive" alt=""/>
-					</li>
-				</ul>	
-			</div>	
-		</div>
-		</div>
-	</div>
-	<!--//slider-->
-	<!--popular-->
-	<div class="popular">
-		<div class="container">
-			<h3 class="title" >Popular</h3>
-			<div class="col-md-5 popular-left">
-				<img src="images/img5.jpg" class="img-responsive" alt=""/>
+			<h3 class="title">About Us</h3>
+			<script type="text/javascript">
+					 $(window).load(function() {
+						$("#flexiselDemo3").flexisel({
+							visibleItems:2,
+							animationSpeed: 1000,
+							autoPlay: true,
+							autoPlaySpeed: 3000,    		
+							pauseOnHover: true,
+							enableResponsiveBreakpoints: true,
+							responsiveBreakpoints: { 
+								portrait: { 
+									changePoint:480,
+									visibleItems:2
+								}, 
+								landscape: { 
+									changePoint:640,
+									visibleItems:2
+								},
+								tablet: { 
+									changePoint:768,
+									visibleItems:2
+								}
+							}
+						});
+						
+					});
+				</script>
+				<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+			<div class="about-grids">
+				<div class="col-md-6 about-grid">					
+					<p>Santos Timber Company manufactures a wide range of wood products with a focus on decorative wood panels featuring beautiful wood veneers and laminatesAdipiscing elit, sed diam nonummy nibh euismod tinci-dunt ut laoreet dolore set.sit amet consectetuer Aadipi-scing elit, sed diam nonummy. nonummy nibh euismodtincidunt ut laoreet dolore magna.</p>
+					<p class="welcome-text">lorem ipsum dolor seradipiscing elit, sed diam nonummy nibh set dolor.Sed diam nonummy nibh euismod tincidunt ut laoreetdolore set.sit amet consectetuer Aadipiscing elit, seddiam nonummy. </p>
+				</div>
+				<div class="col-md-6 about-slider">
+					<ul id="flexiselDemo3">
+						<li>
+							<div class="biseller-column">
+								<div class="banner-grid">
+								  <img src="images/img8.jpg" class="img-responsive" alt="" />
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="biseller-column">
+									<div class="banner-grid">
+										<img src="images/img9.jpg" class="img-responsive" alt="" />
+									</div>
+								</div>
+						</li>
+						<li>
+							<div class="biseller-column">
+									<div class="banner-grid">
+									<img src="images/img10.jpg" class="img-responsive" alt="" />
+									</div>
+							</div>
+						</li>
+					</ul>
+				</div>				
+				<div class="clearfix"></div>									
 			</div>
-			<div class="col-md-7 popular-right">
-				<div class="popular-grids">
-					<div class="col-md-4 popular-text">
-						<img src="images/img6.jpg" class="img-responsive" alt=""/>
+		</div>
+	</div>
+	<!-- welcome -->
+	<div class="team">
+		<div class="container">
+			<h3 class="title">Our Team</h3>
+			<div class="team-grids">
+				<div class="col-md-6 team-grid">
+					<div class="team-grid-left">
+						<h4>Magnam aliquam quaerat voluptatem</h4>
+						<p>Adipisci velit, sed quia non numquam eius modi tempora incidunt 
+							ut labore et dolore magnam aliquam quaerat voluptatem</p>
 					</div>
-					<div class="col-md-8 popular-text pplr-right cl-effect-1">
-						<h4>Donec maximus diam quisi</h4>
-						<p> Vivamus erat sapien, euismod non velit at, finibus interdum magna. Sed vulputate risus sapien consequat posuere enim finibus. </p>
-						<a class="more cl-effect-1" href="#">Read More</a>
+					<div class="team-grid-right">
+						<img src="images/img11.jpg" alt=" " class="img-responsive" />
 					</div>
 					<div class="clearfix"> </div>
 				</div>
-				<div class="popular-grids">
-					<div class="col-md-4 popular-text">
-						<img src="images/img7.jpg" class="img-responsive" alt=""/>
+				<div class="col-md-6 team-grid">
+					<div class="team-grid-right aliquam">
+						<img src="images/img12.jpg" alt=" " class="img-responsive" />
 					</div>
-					<div class="col-md-8 popular-text pplr-right cl-effect-1">
-						<h4>Donec maximus diam quisi</h4>
-						<p> Vivamus erat sapien, euismod non velit at, finibus interdum magna. Sed vulputate risus sapien consequat posuere enim finibus. </p>
-						<a class="more" href="#">Read More</a>
+					<div class="team-grid-left non">
+						<h4>Magnam aliquam quaerat voluptatem</h4>
+						<p>Adipisci velit, sed quia non numquam eius modi tempora incidunt 
+							ut labore et dolore magnam aliquam quaerat voluptatem</p>
+					</div>
+					
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="team-grids">
+				<div class="col-md-6 team-grid">
+					<div class="team-grid-left">
+						<h4>Magnam aliquam quaerat voluptatem</h4>
+						<p>Adipisci velit, sed quia non numquam eius modi tempora incidunt 
+							ut labore et dolore magnam aliquam quaerat voluptatem</p>
+					</div>
+					<div class="team-grid-right">
+						<img src="images/img13.jpg" alt=" " class="img-responsive" />
 					</div>
 					<div class="clearfix"> </div>
 				</div>
+				<div class="col-md-6 team-grid">
+					<div class="team-grid-right aliquam">
+						<img src="images/img14.jpg" alt=" " class="img-responsive" />
+					</div>
+					<div class="team-grid-left non">
+						<h4>Magnam aliquam quaerat voluptatem</h4>
+						<p>Adipisci velit, sed quia non numquam eius modi tempora incidunt 
+							ut labore et dolore magnam aliquam quaerat voluptatem</p>
+					</div>
+					
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
 			</div>
-			<div class="clearfix"> </div>
 		</div>
 	</div>
-	<!--//popular-->
+	<!-- //welcome -->
+
+	<!--//about-->
 	<!--footer-->
 	<div class="footer">
 		<div class="container">
@@ -242,7 +259,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<p>Copyright © 2015 Perfection. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>					
 		</div>
 	</div>
-	<!--//footer-->		
+	<!--//footer-->
 	<!--smooth-scrolling-of-move-up-->
 	<script type="text/javascript">
 		$(document).ready(function() {

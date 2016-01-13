@@ -1,27 +1,3 @@
-<?php
-
-require 'vendor/autoload.php';
-
-// $cm = new Cmautoload;
-// echo $cm->classmap();
-
-$user = new User;
-//echo $user->greet();
-
-//echo '<br>';
-
-//echo get_domain();
-
-$db = new Database();
-//$db = $database->getConnection();
-
-// echo asset("/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css");
-
-// exit;
-
-?>
-
-
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -31,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Perfection a Wedding Category Flat bootstrap Responsive website Template | Home :: w3layouts</title>
+<title>Perfection a Wedding Category Flat bootstrap Responsive website Template | Services :: w3layouts</title>
 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
 <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
 <!-- Custom Theme files -->
@@ -84,9 +60,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="collapse navbar-collapse navbar-left" id="bs-example-navbar-collapse-1">
 						<div class="top-nav">
 							<ul class="nav navbar-nav navbar-left cl-effect-16">
-								<li class="first"><a href="index.html" class="active">Home</a></li>
+								<li class="first"><a href="index.html" data-hover="Home">Home</a></li>
 								<li><a href="about.html" data-hover="About">About</a></li>		
-								<li><a href="#" data-hover="Services" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<span class="caret"></span></a>
+								<li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<span class="caret"></span></a>
 									<ul class="dropdown-menu">
 										<li><a href="services.html">Services1</a></li>
 										<li><a href="services.html">Services2</a></li>
@@ -106,98 +82,98 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="bnr-text">
 			<div class="container">
-				<h1><a href="index.html"> The Planner </a></h1>
-				<p style="color:#FC4A46;">Perfect wedding planning & fresh ideas for your wedding</p>
+				<h1><a href="index.html"> Perfection </a></h1>
+				<p>Perfect wedding planning & fresh ideas for your wedding</p>
 			</div>
 		</div>
 	</div>
 	<!--//banner-->
-	<div class="banner-bottom">
+	<!--services-->
+	<div class="services">
 		<div class="container">
-			<h3 class="title">Welcome To Our Site</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus erat sapien, euismod non velit at, finibus interdum magna. Donec maximus diam quis mi aliquam tincidunt. Sed vulputate risus sapien, sollicitudin pharetra leo accumsan sed. Cras rhoncus sapien ac metus vehicula, consequat posuere enim finibus. </p>
-			<img src="images/img1.jpg" class="img-responsive" alt=""/>
-			<p class="btm-text"><span>"</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus erat sapien, euismod non velit at, finibus interdum magna. Donec maximus diam quis mi aliquam tincidunt. Sed vulputate risus sapien, sollicitudin pharetra leo accumsan sed. Cras rhoncus sapien ac metus vehicula, consequat posuere enim finibus.<span>"</span></p>			
+			<h3 class="title">Our Services</h3>
+			<div class="services-grids">
+				<div class="col-md-4 services-grids-info">
+					<div class="srvs-image">
+						<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+					</div>
+					<div class="img-title">
+						<h4>ELEIF<br>SCELERISQUE</h4>
+					</div>
+					<div class="clearfix"> </div>
+					<p>Donec libero dui scelerisque ac augue id, tristique vitae dignissim sapien diam ac nibh convallis.</p>
+				</div>
+				<div class="col-md-4 services-grids-info">
+					<div class="srvs-image">
+						<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+					</div>
+					<div class="img-title">
+						<h4>QUALITY<br>PHOTOGRAPHY</h4>
+					</div>
+					<div class="clearfix"> </div>
+					<p>Donec libero dui scelerisque ac augue id, tristique vitae dignissim sapien diam ac nibh convallis.</p>
+				</div>
+				<div class="col-md-4 services-grids-info">
+					<div class="srvs-image">
+						<span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+					</div>
+					<div class="img-title">
+						<h4>BEST<br>ENTERTAINMENT</h4>
+					</div>
+					<div class="clearfix"> </div>
+					<p>Donec libero dui scelerisque ac augue id, tristique vitae dignissim sapien diam ac nibh convallis.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
 		</div>
 	</div>
-	<!--slider-->
-	<div class="slider"> 
+	<!--//services-btm-->
+	<!--featured services-->
+	<div class="featured"> 
 		<div class="container">
-		<div class="banner-title"> 
-			<!-- banner-text Slider starts Here -->
-			<script src="js/responsiveslides.min.js"></script>
-			 <script>
-				// You can also use "$(window).load(function() {"
-					$(function () {
-					// Slideshow 3
-						$("#slider3").responsiveSlides({
-						auto: true,
-						pager:false,
-						nav:true,
-						speed: 500,
-						namespace: "callbacks",
-						before: function () {
-						$('.events').append("<li>before event fired.</li>");
-						},
-						after: function () {
-							$('.events').append("<li>after event fired.</li>");
-						}
-					});	
-				});
-			</script>
-			<!--//End-slider-script -->
-			<div  id="top" class="callbacks_container">
-				<ul class="rslides" id="slider3">
-					<li>
-						<img src="images/img2.jpg" class="img-responsive" alt=""/>
-					</li>
-					<li>
-						<img src="images/img3.jpg" class="img-responsive" alt=""/>
-					</li>
-					<li>
-						<img src="images/img4.jpg" class="img-responsive" alt=""/>
-					</li>
-				</ul>	
+			<h3 class="title">Featured Services</h3>
+			<div class="portfolio-grids">
+				<div class="col-md-4 port-grids view view-fourth">
+					<img src="images/g1.jpg" class="img-responsive" alt=""/>
+					<div class="mask">
+                        <p>A wonderful serenity has taken possession of my which I enjoy with my whole heart.</p>
+                    </div>
+				</div>
+				<div class="col-md-4 port-grids view view-fourth">
+					<img src="images/g9.jpg" class="img-responsive" alt=""/>
+					<div class="mask">
+                        <p>A wonderful serenity has taken possession of my which I enjoy with my whole heart.</p>
+                    </div>
+				</div>
+				<div class="col-md-4 port-grids view view-fourth">
+					<img src="images/g2.jpg" class="img-responsive" alt=""/>
+					<div class="mask">
+                        <p>A wonderful serenity has taken possession of my which I enjoy with my whole heart.</p>
+                    </div>
+				</div>
+				<div class="col-md-4 port-grids view view-fourth">
+					<img src="images/g6.jpg" class="img-responsive" alt=""/>
+					<div class="mask">
+                        <p>A wonderful serenity has taken possession of my which I enjoy with my whole heart.</p>
+                    </div>
+				</div>
+				<div class="col-md-4 port-grids view view-fourth">
+					<img src="images/g7.jpg" class="img-responsive" alt=""/>
+					<div class="mask">
+                        <p>A wonderful serenity has taken possession of my which I enjoy with my whole heart.</p>
+                    </div>
+				</div>
+				<div class="col-md-4 port-grids view view-fourth">
+					<img src="images/g4.jpg" class="img-responsive" alt=""/>
+					<div class="mask">
+                        <p>A wonderful serenity has taken possession of my which I enjoy with my whole heart.</p>
+                    </div>
+				</div>				
+				<div class="clearfix"> </div>
 			</div>	
 		</div>
-		</div>
-	</div>
-	<!--//slider-->
-	<!--popular-->
-	<div class="popular">
-		<div class="container">
-			<h3 class="title" >Popular</h3>
-			<div class="col-md-5 popular-left">
-				<img src="images/img5.jpg" class="img-responsive" alt=""/>
-			</div>
-			<div class="col-md-7 popular-right">
-				<div class="popular-grids">
-					<div class="col-md-4 popular-text">
-						<img src="images/img6.jpg" class="img-responsive" alt=""/>
-					</div>
-					<div class="col-md-8 popular-text pplr-right cl-effect-1">
-						<h4>Donec maximus diam quisi</h4>
-						<p> Vivamus erat sapien, euismod non velit at, finibus interdum magna. Sed vulputate risus sapien consequat posuere enim finibus. </p>
-						<a class="more cl-effect-1" href="#">Read More</a>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="popular-grids">
-					<div class="col-md-4 popular-text">
-						<img src="images/img7.jpg" class="img-responsive" alt=""/>
-					</div>
-					<div class="col-md-8 popular-text pplr-right cl-effect-1">
-						<h4>Donec maximus diam quisi</h4>
-						<p> Vivamus erat sapien, euismod non velit at, finibus interdum magna. Sed vulputate risus sapien consequat posuere enim finibus. </p>
-						<a class="more" href="#">Read More</a>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-	<!--//popular-->
+	</div>	
+	<!--//Services-->
 	<!--footer-->
 	<div class="footer">
 		<div class="container">
@@ -242,7 +218,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<p>Copyright © 2015 Perfection. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>					
 		</div>
 	</div>
-	<!--//footer-->		
+	<!--//footer-->
 	<!--smooth-scrolling-of-move-up-->
 	<script type="text/javascript">
 		$(document).ready(function() {
