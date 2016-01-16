@@ -1,3 +1,6 @@
+<?php
+chk_lgn();
+?>
 <!DOCTYPE html>
     <!--
     This is a starter template page. Use this page to start your new project from
@@ -36,7 +39,7 @@
         <header class="main-header">
 
             <!-- Logo -->
-            <a href="index2.html" class="logo"><b>Wedding</b> planner</a>
+            <a href="index2.html" class="logo"><b>The</b>planner</a>
 
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -56,15 +59,14 @@
                                 <!-- The user image in the navbar-->
                                 <img src="<?= asset("/bower_components/AdminLTE/dist/img/user2-160x160.jpg") ?>" class="user-image" alt="User Image"/>
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs"><?= isset($fullname) ? $fullname : "John Doe";?></span>
+                                <span class="hidden-xs"><?= isset($_SESSION['full_name']) ? $_SESSION['full_name'] : "John Doe";?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
                                     <img src="<?= asset("/bower_components/AdminLTE/dist/img/user2-160x160.jpg") ?>" class="img-circle" alt="User Image" />
                                     <p>
-                                        <?= isset($fullname) ? $fullname : "John Doe";?> - <?= $page = isset($role) ? $role : "Hacker";?>
-                                        
+                                        <?= isset($_SESSION['full_name']) ? $_SESSION['full_name'] : "John Doe";?> - <?= $page = isset($_SESSION['role']) ? $_SESSION['role'] : "Hacker";?>
                                     </p>
                                 </li>
                                 

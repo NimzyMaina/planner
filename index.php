@@ -96,7 +96,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</ul>
 								</li>
 								<li><a href="gallery.html" data-hover="Gallery">Gallery</a></li>
-								<li><a href="typo.html" data-hover="Typo">Typo</a></li>		
+								<li><a href="typo.html" data-hover="Typo">Typo</a></li>
+                                <li><a href="test.php" data-hover="Test">Test</a> </li>
 								<li><a href="contact.html" data-hover="Contact">Contact</a></li>
 							</ul>								
 						</div>

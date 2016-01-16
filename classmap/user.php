@@ -36,7 +36,7 @@ class User {
     }
 
     public function login(){
-        $query = "SELECT * FROM $this->table_name WHERE email='".sha1($this->password)."' ";
+        $query = "SELECT * FROM $this->table_name WHERE email = '$this->email' AND password = '".sha1($this->password)."' ";
 
         $stmt = $this->conn->prepare( $query );
         $stmt->execute();
@@ -48,10 +48,11 @@ class User {
                 extract($row);
 
                 if($this->email == $email && sha1($this->password) ==  $password){
-                    session_start();
+                    //session_start();
                     $_SESSION['full_name'] = $first_name ." ". $last_name;
                     $_SESSION['logged_in'] = true;
                     $_SESSION['role'] = $role;
+                   // print_r($_SESSION);exit;
                     return true;
                 }
                 return false;

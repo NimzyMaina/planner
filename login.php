@@ -7,7 +7,16 @@
         $user->password = $_POST['password'];
 
         if($user->login()){
-
+            if($_SESSION['role'] == "admin"){
+                header("Location:admin/index.php");
+                //echo "good";exit;
+            }else{
+                $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
+                header("Location: $referer");
+//                echo "bad";
+            }
+        }else{
+            $error = "Wrong Email / Password Combination";
         }
 
     }
@@ -17,7 +26,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
+  <title>The Planner | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.5 -->
@@ -33,6 +42,7 @@
     <!-- formValidation -->
     <link rel="stylesheet" href="./bower_components/formValidation/dist/css/formValidation.min.css">
 
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico"/>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -49,11 +59,15 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
+      <?php
+      if(isset($error)){
+          echo '<div class="alert alert-danger" role="alert">'.$error .'</div>';
+      }?>
     <p class="login-box-msg">Sign in to start your session</p>
 
     <form id="loginForm" action="<?= htmlentities($_SERVER['PHP_SELF']);?>" method="post">
       <div class="form-group has-feedback">
-        <input type="email" name="email" class="form-control" placeholder="Email">
+        <input type="email" name="email" class="form-control" placeholder="Email" value="<?= value('email')?>">
 
       </div>
       <div class="form-group has-feedback">

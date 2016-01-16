@@ -1,30 +1,11 @@
-<?php
-
-require_once(dirname(__FILE__).'/../vendor/autoload.php');//autoload packages
-
-// $cm = new Cmautoload;
-// echo $cm->classmap();
-
-$user = new User;
-//echo $user->greet();
-
-//echo '<br>';
-
-//echo get_domain();
+<?php require_once(dirname(__FILE__).'/../vendor/autoload.php');//autoload packages
 
 $db = new Database();
-//$db = $database->getConnection();
+$user = new User($db);
 
-// echo asset("/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css");
-
-// exit;
 include 'templates/header.php';
 include 'templates/sidemenu.php';
 ?>
-
-
-
-        
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">

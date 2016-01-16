@@ -1,17 +1,15 @@
-<?php
+<?php require_once(dirname(__FILE__).'/../vendor/autoload.php');//autoload packages
+    session_start();
+    $dotenv = new Dotenv\Dotenv(__DIR__.'/..');
+    $dotenv->load();
 
-require_once(dirname(__FILE__).'/../vendor/autoload.php');//autoload packages
-
-        $dotenv = new Dotenv\Dotenv(__DIR__.'/..');
-        $dotenv->load();
-
- function get_domain(){
-	//$domain = $_SERVER['HTTP_HOST'];
-	//return $_SERVER['HTTP_HOST'];
-	return getenv('SITE_URL');
+    function get_domain(){
+    //$domain = $_SERVER['HTTP_HOST'];
+    //return $_SERVER['HTTP_HOST'];
+    return getenv('SITE_URL');
 }
 
- function parse_extras($rule) 
+    function parse_extras($rule)
 {
     if ($rule[0] == "#") //1
     {
@@ -19,14 +17,14 @@ require_once(dirname(__FILE__).'/../vendor/autoload.php');//autoload packages
         $data = ' id="' . $id . '"'; //3
         return $data;
     }
-     
+
     if ($rule[0] == ".") //4
     {
         $class = substr($rule,1,strlen($rule));
         $data = ' class="' . $class . '"';
         return $data;
     }
-     
+
     if ($rule[0] == "_") //5
     {
         $data = ' target="' . $rule . '"';
@@ -34,12 +32,12 @@ require_once(dirname(__FILE__).'/../vendor/autoload.php');//autoload packages
     }
 }
 
- function anchor($link, $text, $title, $extras)//1
+    function anchor($link, $text, $title, $extras)//1
 {
     $domain = get_domain();
     $link = $link;
     $data = '<a href="' . $link . '"';
-     
+
     if ($title)
     {
         $data .= ' title="' . $title . '"';
@@ -48,7 +46,7 @@ require_once(dirname(__FILE__).'/../vendor/autoload.php');//autoload packages
     {
         $data .= ' title="' . $text . '"';
     }
-     
+
     if (is_array($extras))//2
     {
         foreach($extras as $rule)//3
@@ -56,29 +54,30 @@ require_once(dirname(__FILE__).'/../vendor/autoload.php');//autoload packages
             $data .= parse_extras($rule);//4
         }
     }
-     
+
     if (is_string($extras))//5
     {
         $data .= parse_extras($extras);//6
     }
-         
+
     $data.= '>';
-     
+
     $data .= $text;
     $data .= "</a>";
 
     //echo $data;exit;
-     
+
     return $data;
 }
 
     function asset ($data){
-        return "..".$data;
+        return get_domain().$data;
     }
 
     function chk_lgn(){
         if(!isset($_SESSION['logged_in'])){
-            header ("Location:login.php");
+            $url = getenv('SITE_URL')."/login.php";
+            header ("Location: $url");
         }
     }
 
@@ -86,15 +85,13 @@ require_once(dirname(__FILE__).'/../vendor/autoload.php');//autoload packages
         chk_lgn();
 
         if($_SESSION['role'] != "admin"){
-            header ("Location:login.php");
+            $url = getenv('SITE_URL')."/login.php";
+            header ("Location: $url");
         }
     }
 
     function sendmail($to,$name,$subj,$msg){
         $mail = new PHPMailer;
-
-//$mail->SMTPDebug = 3;                               // Enable verbose debug output
-
         $mail->isSMTP();                                      // Set mailer to use SMTP
         $mail->Host = getenv('MAIL_HOST');  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -139,3 +136,7 @@ require_once(dirname(__FILE__).'/../vendor/autoload.php');//autoload packages
         }
 
     }
+
+    function value($name){
+         return isset($_POST[$name]) ? $_POST[$name] : '';
+     }

@@ -10,7 +10,7 @@
                         <img src="<?= asset("/bower_components/AdminLTE/dist/img/user2-160x160.jpg") ?>" class="img-circle" alt="User Image" />
                     </div>
                     <div class="pull-left info">
-                        <p> <?= isset($fullname) ? $fullname : "John Doe";?></p>
+                        <p> <?= isset($_SESSION['full_name']) ? $_SESSION['full_name'] : "John Doe";?></p>
                         <!-- Status -->
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>

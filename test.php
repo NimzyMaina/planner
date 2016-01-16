@@ -24,4 +24,7 @@
 } */
 
 //sendmail('kmaina@clemcreativity.com','Kevin Maina','Test','Just testing');
-sms('+254724844946','The Planner');
+//sms('+254724844946','The Planner');
+
+//echo isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'not there';
+print_r($_SESSION);
