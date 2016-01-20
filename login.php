@@ -8,10 +8,14 @@
 
         if($user->login()){
             if($_SESSION['role'] == "admin"){
-                header("Location:admin/index.php");
+                $url = getenv('SITE_URL')."/admin/";
+                header ("Location: $url");
+                //header("Location:admin/index.php");
                 //echo "good";exit;
             }else{
-                header("Location:index.php");
+//                header("Location:index.php");
+                $url = getenv('SITE_URL');
+                header ("Location: $url");
             }
         }else{
             $error = "Wrong Email / Password Combination";
