@@ -76,7 +76,7 @@
 
     function chk_lgn(){
         if(!isset($_SESSION['logged_in'])){
-            $url = getenv('SITE_URL')."/login.php";
+            $url = getenv('SITE_URL')."/login";
             header ("Location: $url");
         }
     }
@@ -85,7 +85,7 @@
         chk_lgn();
 
         if($_SESSION['role'] != "admin"){
-            $url = getenv('SITE_URL')."/login.php";
+            $url = getenv('SITE_URL')."/login";
             header ("Location: $url");
         }
     }
@@ -140,3 +140,34 @@
     function value($name){
          return isset($_POST[$name]) ? $_POST[$name] : '';
      }
+
+    function message($class,$msg){
+        return '<div class="alert alert-'.$class.'" role="alert">'.$msg .'</div>';
+    }
+
+    function parent($head){
+        $name = basename($_SERVER['PHP_SELF']);
+
+        $link = explode("_",$name);
+        if ($head == $link[0]){
+            return ' active';
+        }
+    }
+
+    function child($child){
+        $name = basename($_SERVER['PHP_SELF']);
+
+        $temp = explode("_",$name);
+        $link = explode(".",$temp[1]);
+        if ($child == $link[0]){
+            return ' active';
+        }
+    }
+
+    function home($home){
+        $name = basename($_SERVER['PHP_SELF']);
+        $link = explode(".",$name);
+        if ($home == $link[0]){
+            return ' active';
+        }
+    }

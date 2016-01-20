@@ -23,7 +23,7 @@ chk_lgn();
               page. However, you can choose any other skin. Make sure you
               apply the skin class to the body tag so the changes take effect.
         -->
-        <link href="<?= asset("/bower_components/AdminLTE/dist/css/skins/skin-purple-light.min.css")?>" rel="stylesheet" type="text/css" />
+        <link href="<?= asset("/bower_components/AdminLTE/dist/css/skins/skin-blue.min.css")?>" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,7 +32,7 @@ chk_lgn();
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="skin-purple-light">
+    <body class="skin-blue">
     <div class="wrapper">
 
         <!-- Main Header -->

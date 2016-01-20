@@ -11,9 +11,7 @@
                 header("Location:admin/index.php");
                 //echo "good";exit;
             }else{
-                $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
-                header("Location: $referer");
-//                echo "bad";
+                header("Location:index.php");
             }
         }else{
             $error = "Wrong Email / Password Combination";
