@@ -142,7 +142,8 @@
      }
 
     function message($class,$msg){
-        return '<div class="alert alert-'.$class.'" role="alert">'.$msg .'</div>';
+        return '<div class="al-msg"><div class="alert alert-'.$class.'" role="alert">
+        <span class="close" data-dismiss="alert">&times;</span>'.$msg .'</div></div>';
     }
 
     function parent($head){

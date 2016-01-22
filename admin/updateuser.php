@@ -11,6 +11,7 @@ $db = new Database();
 $user = new User($db->conn);
 
 if(!empty($_POST)) {
+    //print_r($_POST);exit;
     foreach ($_POST as $field_name => $val)
     {
 //        //clean post values
@@ -21,9 +22,8 @@ if(!empty($_POST)) {
     $split_data = explode(':', $field_userid);
     $user_id = $split_data[1];
     $field_name = $split_data[0];
-
     $user->update($field_name, $val, $user_id);
-    echo "Field Succefully Updated";
+    echo "Field Succefully Updated!!";
 }
 
 } else {

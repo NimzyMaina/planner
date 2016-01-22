@@ -7,17 +7,25 @@ include 'templates/sidemenu.php';
 
 ?>
 
+<!-- fullCalendar 2.2.5-->
+<link href="<?= asset('/bower_components/AdminLTE/plugins/fullcalendar/fullcalendar.min.css')?>" rel="stylesheet" type="text/css" />
+<link href="<?= asset('/bower_components/AdminLTE/plugins/fullcalendar/fullcalendar.print.css')?>" rel="stylesheet" type="text/css" media='print' />
+
+<script>
+
+</script>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Page Header
-            <small>Optional description</small>
+            Calendar
+            <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-            <li class="active">Here</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Calendar</li>
         </ol>
     </section>
 
@@ -25,16 +33,17 @@ include 'templates/sidemenu.php';
     <section class="content">
 
         <!-- Your Page Content Here -->
-
-        <?php
-        $name = basename($_SERVER['PHP_SELF']);
-
-        print_r (explode(" ",$name));
-
-        //echo child('test');
-
-        echo $val = strip_tags(trim("+254 724 844 94"));
-        ?>
+        <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-body no-padding">
+                    <!-- THE CALENDAR -->
+                    <div id='loading'>loading...</div>
+                    <div id="calendar"></div>
+                </div><!-- /.box-body -->
+            </div><!-- /. box -->
+        </div><!-- /.col -->
+        </div><!-- /.row -->
 
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
@@ -53,5 +62,6 @@ include 'templates/sidemenu.php';
 
 <?php
 include 'templates/footer.php';?>
+
 
 

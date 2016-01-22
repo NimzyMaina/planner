@@ -139,17 +139,17 @@ class User {
     }
 
     function update($field_name,$value,$id){
-        $query = "UPDATE
+         $query = "UPDATE
                 " . $this->table_name . "
             SET
-                $field_name = :value
+                $field_name = '$value'
             WHERE
-                id = :id";
+                id = $id";//exit;
 
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam(':value', $value);
-        $stmt->bindParam(':id', $id);
+       // $stmt->bindParam(':value', $value);
+        //$stmt->bindParam(':id', $id);
 
         // execute the query
         if($stmt->execute()){

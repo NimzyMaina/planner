@@ -31,6 +31,7 @@
                 <ul class="sidebar-menu">
                     <li class="header">HEADER</li>
                     <li class="<?=home('index')?>"><a href="./"> <i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                    <li class="<?=home('calendar')?>"><a href="calendar"> <i class="fa fa-calendar"></i> <span>Calendar</span></a></li>
                     <li class="treeview <?=parent('vendor')?>">
                         <a href="#"> <i class="fa fa-shopping-cart"></i> <span>Vendors</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">

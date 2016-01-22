@@ -31,6 +31,17 @@ chk_lgn();
 
         <link href="<?= asset("/bower_components/sweetalert2/dist/sweetalert2.css")?>" rel="stylesheet" type="text/css" />
 
+        <!-- iCheck -->
+        <link rel="stylesheet" href="<?= asset('/bower_components/AdminLTE/plugins/iCheck/square/blue.css')?>">
+        <!-- formValidation -->
+        <link rel="stylesheet" href="<?= asset('/bower_components/formValidation/dist/css/formValidation.min.css')?>">
+
+        <style type="text/css">
+            .al-msg{
+                margin: 5px;
+            }
+        </style>
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>

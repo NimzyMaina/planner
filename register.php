@@ -63,7 +63,7 @@ if($_POST){
         <?php
         if(isset($state)){
             if($state){
-            echo message('success',"User Successfully Registered");
+            echo message('success',"User Successfully Registered. An email has been sent to your account with the activation link.");
             }else{
                 echo message('danger',"Ooops!! Could Not register User");
             }
