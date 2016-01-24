@@ -110,20 +110,7 @@ $("#example1").DataTable();
 
 //edit on datatable
 
-$(function(){
-    //acknowledgement message
-    var message_status = $("#status");
-    $("td[contenteditable=true]").blur(function(){
-        var field_userid = $(this).attr("id") ;
-        var value = $(this).text() ;
-        $.post( update_user ,field_userid + "=" + encodeURIComponent(value),function(data){
-            if(data != '')
-            {
-                swal({   title: 'Success!',   text: data,   timer: 2000 });
-            }
-        });
-    });
-});
+
 
 
 //icheck box

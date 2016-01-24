@@ -36,6 +36,28 @@ include 'templates/sidemenu.php';
         echo $val = strip_tags(trim("+254 724 844 94"));
         ?>
 
+        <span contenteditable onfocus="useIt()" editor="edit">Admin</span>
+
+
+        <div id="container"></div>
+        <script>
+            function useIt() {
+                var content = document.querySelector('template').content;
+                // Update something in the template DOM.
+//                var span = content.querySelector('span');
+//                span.textContent = parseInt(span.textContent) + 1;
+                document.querySelector('#container').appendChild(
+                    document.importNode(content, true));
+            }
+        </script>
+
+        <template id='edit'>
+            <select>
+                <option name='admin'>Admin</option>
+                <option name='standard'>Standard</option>
+            </select>
+        </template>
+
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 
