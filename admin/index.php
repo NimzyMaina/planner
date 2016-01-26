@@ -2,11 +2,16 @@
 
 $db = new Database();
 $user = new User($db->conn);
+$vendor = new Vendor($db->conn);
 $unum = $user->countAll();
+$vnum = $vendor->countAll();
 
 include 'templates/header.php';
 include 'templates/sidemenu.php';
 ?>
+    <link href="<?= asset('/css/flatWeatherPlugin.css')?>" rel="stylesheet">
+
+    <script src="<?= asset('/js/jquery.flatWeatherPlugin.js')?>"></script>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -27,7 +32,6 @@ include 'templates/sidemenu.php';
 
                 <!-- Your Page Content Here -->
                 <div class="row">
-
                     <div class="col-lg-3 col-xs-6">
                         <!-- small box -->
                         <div class="small-box bg-yellow">
@@ -40,7 +44,27 @@ include 'templates/sidemenu.php';
                             </div>
                             <a href="<?=asset('/admin/user_list')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
+                        </div>
+
+                        <div class="col-lg-3 col-xs-6">
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <h3><?= $vnum?></h3>
+                                <p>Registered Vendors</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-bag"></i>
+                            </div>
+                            <a href="<?=asset('/admin/vendor_list')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+
+
                     </div><!-- ./col -->
+                    </div>
+                        <div class="row">
+
+                            <div id="weather"></div>
+                        </div>
 
 
             </section><!-- /.content -->
@@ -57,6 +81,45 @@ include 'templates/sidemenu.php';
         </footer>
 
     </div><!-- ./wrapper -->
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            //Setup the plugin, see readme for more examples
+            var example = $("#weather").flatWeatherPlugin({
+                location: "Nairobi", //city and region *required
+                country: "Kenya",         //country *required
+                //optional:
+                api: "openweathermap", //default: openweathermap (openweathermap or yahoo)
+                apikey: "44db6a862fba0b067b1930da0d769e98",   //optional api key for openweather
+                view : "full", //default: full (partial, full, simple, today or forecast)
+                displayCityNameOnly : true, //default: false (true/false) if you want to display only city name
+                forecast: 5, //default: 5 (0 -5) how many days you want forecast
+                render: true, //default: true (true/false) if you want plugin to generate markup
+                loadingAnimation: true //default: true (true/false) if you want plugin to show loading animation
+                //units : "metric" or "imperial" default: "auto"
+            });
+
+        });
+    </script>
+
+    <style>
+
+        /* style the container however you please */
+        #weather {
+            color:#fff;
+            background: #3C8DBC;
+            padding: 10px;
+            margin: 30px auto;
+            width: 340px;
+            border-radius: 1px;
+        }
+
+        /*!* styling for this page only, ignore *!*/
+        /*body {background: #95a5a6; font-family: sans-serif; background: #ecf0f1; padding: 0; margin: 0;}*/
+        /*p {color: #888; width: 340px; margin: 0 auto; text-align: center;}*/
+
+    </style>
 
 <?php
 include 'templates/footer.php';?>

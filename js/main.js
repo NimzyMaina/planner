@@ -107,10 +107,40 @@ $(document).ready(function() {
 
 // instanciate datatables
 $("#example1").DataTable();
+$("#example2").DataTable();
 
-//edit on datatable
+//edit on user datatable
 
+$(function(){
+    //acknowledgement message
+    var message_status = $("#status");
+    $("#example1 td[contenteditable=true]").blur(function(){
+        var field_userid = $(this).attr("id") ;
+        var value = $(this).text() ;
+        $.post( update_user ,field_userid + "=" + encodeURIComponent(value),function(data){
+            if(data != '')
+            {
+                swal({   title: 'Success!',   text: data,   timer: 2000 });
+            }
+        });
+    });
+});
 
+//edit on vendor datatable
+$(function(){
+    //acknowledgement message
+    var message_status = $("#status");
+    $("#example2 td[contenteditable=true]").blur(function(){
+        var field_userid = $(this).attr("id") ;
+        var value = $(this).text() ;
+        $.post( update_vendor ,field_userid + "=" + encodeURIComponent(value),function(data){
+            if(data != '')
+            {
+                swal({   title: 'Success!',   text: data,   timer: 2000 });
+            }
+        });
+    });
+});
 
 
 //icheck box
@@ -151,6 +181,70 @@ $(document).ready(function() {
 
     });
 
+});
+
+//add vendor validation
+
+$(document).ready(function() {
+    $('#addVendorForm').formValidation({
+        message: 'This value is not valid',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            name: {
+                validators: {
+                    notEmpty: {
+                        message: 'The Vendor Name is required'
+                    }
+                }
+            },
+            phone: {
+                validators: {
+                    notEmpty: {
+                        message: 'The Vendor Phone is required'
+                    }
+                }
+            },
+            email: {
+                threshold: 5,
+                validators: {
+                    notEmpty: {
+                        message: 'The Vendor email address is required'
+                    },
+                    emailAddress: {
+                        message: 'The Vendor input is not a valid email address'
+                    },
+                    remote: {
+                        message: 'The  email is not available',
+                        url: ajax_url,
+                        data: {
+                            type: 'vendor_email'
+                        },
+                        type: 'POST',
+                        delay: 4000
+                    }
+                }
+            },
+            website: {
+                validators: {
+                    uri: {
+                        message: 'The input is not a valid URL'
+                    }
+                }
+            },
+            details: {
+                //icon: 'false',
+                validators: {
+                    notEmpty: {
+                        message: 'You have to provide vendor Details'
+                    }
+                }
+            }
+        }
+    });
 });
 
 

@@ -2,6 +2,7 @@
 
     $db = new Database();
     $user = new User($db->conn);
+    $vendor = new Vendor($db->conn);
 
     $isAvailable = false;
 
@@ -24,6 +25,14 @@
                 $isAvailable = true;
             }
         break;
+
+        case 'vendor_email';
+            if($vendor->check_email($_POST['email'])){
+                $isAvailable = true;
+            }
+            break;
+
+
     }
 
     echo json_encode(array(

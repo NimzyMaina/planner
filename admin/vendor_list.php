@@ -36,7 +36,7 @@ include 'templates/sidemenu.php';
                     </div>
                     <?php
                     if($num>0){
-                        echo "<div class='box-body'><table id='example1' class='table table-hover table-responsive table-bordered'>";
+                        echo "<div class='box-body'><table id='example2' class='table table-hover table-responsive table-bordered'>";
                         echo "<thead><tr>";
                         echo "<th>Name</th>";
                         echo "<th>Phone</th>";
@@ -59,8 +59,6 @@ include 'templates/sidemenu.php';
                             echo "<td id='website:$id' contenteditable=\"true\">{$website}</td>";
                             echo "<td>{$status}</td>";
                             echo "<td>";
-                            // edit and delete button is here
-                            echo "<a href='update_product.php?id={$id}' class='btn btn-default left-margin'>Edit</a>";
                             echo "<a delete-id='{$id}' class='btn btn-default delete-object'>Delete</a>";
                             echo "</td>";
 
@@ -78,22 +76,7 @@ include 'templates/sidemenu.php';
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 
-<script>
-    $(function(){
-        //acknowledgement message
-        var message_status = $("#status");
-        $("td[contenteditable=true]").blur(function(){
-            var field_userid = $(this).attr("id") ;
-            var value = $(this).text() ;
-            $.post( <?= asset('/admin/updatevenor.php')?> ,field_userid + "=" + encodeURIComponent(value),function(data){
-                if(data != '')
-                {
-                    swal({   title: 'Success!',   text: data,   timer: 2000 });
-                }
-            });
-        });
-    });
-</script>
+
 
 <!-- Main Footer -->
 <footer class="main-footer">

@@ -11,6 +11,7 @@ chk_lgn();
         <meta charset="UTF-8">
         <title><?=  isset($title) ? $title." | The Planner" : "The Planner";?></title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <script src="<?= asset ("/bower_components/AdminLTE/plugins/jQuery/jquery.min.js") ?>"></script>
 
         <link rel="shortcut icon" type="image/x-icon" href="<?= asset('/images/favicon.ico')?>"/>
         <!-- Bootstrap 3.3.2 -->

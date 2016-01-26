@@ -39,6 +39,13 @@
                             <li class="<?=child('add')?>"><a href="vendor_add"><i class="fa fa-circle-o"></i> Add Vendor</a></li>
                         </ul>
                     </li>
+                    <li class="treeview <?=parent('item')?>">
+                        <a href="#"> <i class="fa fa-list"></i> <span> Vendor Items</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li class="<?=child('list')?>"><a href="item_list"><i class="fa fa-circle-o"></i> List Items</a></li>
+                            <li class="<?=child('add')?>"><a href="item_add"><i class="fa fa-circle-o"></i> Add Item</a></li>
+                        </ul>
+                    </li>
                     <li class="treeview <?=parent('user')?>">
                         <a href="#"> <i class="fa fa-users"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
