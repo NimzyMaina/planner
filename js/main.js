@@ -108,6 +108,21 @@ $(document).ready(function() {
 // instanciate datatables
 $("#example1").DataTable();
 $("#example2").DataTable();
+$("#items").DataTable();
+//$("#itemsd").DataTable({
+//    "aoColumnDefs": [{
+//        "aTargets" : [4],
+//        "mRender": function ( status, type, full )  {
+//            var a;
+//            if(status == 1){
+//                a = '<span class="label label-success" >Active</span>';
+//            }else{
+//                a = '<span class="label label-danger" >Inactive</span>';
+//            }
+//            return  a;
+//        }
+//    }]
+//});
 
 //edit on user datatable
 
@@ -248,3 +263,137 @@ $(document).ready(function() {
 });
 
 
+
+//add vendor item validation
+
+$(document).ready(function() {
+    $('#addVendorItemForm').formValidation({
+        message: 'This value is not valid',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            name: {
+                validators: {
+                    notEmpty: {
+                        message: 'The Item Name is required'
+                    }
+                }
+            },
+            vendor_id: {
+                validators: {
+                    notEmpty: {
+                        message: 'The Vendor ID is required'
+                    }
+                }
+            },
+            category_id: {
+                validators: {
+                    notEmpty: {
+                        message: 'The Category ID is required'
+                    }
+                }
+            },
+            article: {
+                validators: {
+                    notEmpty: {
+                        message: 'The Item Article is required'
+                    }
+                }
+            },
+            'images[]': {
+                validators: {
+                    file: {
+                        extension: 'jpeg jpg,png',
+                        type: 'image/jpeg,image/png',
+                        maxSize: 1024*1024,
+                        message: 'Please choose a JPEG/JPG or a PNG file with a size less than 1MB.'
+                    },
+                    file: {
+                        maxFiles: 5,
+                        message: 'Oops!! Maximum number of images is 5'
+                    }
+                }
+            }
+        }
+    });
+});
+
+
+//delete script
+
+
+$(document).on('click', '.delete-object', function(){
+
+    var id = $(this).attr('delete-id');
+    var del = $(this).attr('delete-type');
+
+    swal({
+            title: 'Are you Sure?',
+            text: 'You will not be able to recover this Item!',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel please!',
+            confirmButtonClass: 'confirm-class',
+            cancelButtonClass: 'cancel-class',
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+        function(isConfirm){
+            if(isConfirm) {
+                //ajax
+                $.post(ajax_url, {
+                    object_id: id,
+                    type : del
+                }, function(data){
+                    swal('Deleted!',
+                        'Your Item has been Deleted.',
+                        'success');
+                    location.reload();
+                }).fail(function() {
+                    swal('Unable to delete.');
+                });
+            }else{
+                swal(
+                    'Cancelled',
+                    'Your Item Is Safe :)',
+                    'error'
+                );
+            }
+
+        });
+
+    return false;
+});
+
+
+function myfun(){
+    swal('You clicked the span');
+}
+
+$(document).on('click', '.toog', function(){
+    var id = $(this).attr('data-id');
+    var status = $(this).attr('data-status');
+    var type = $(this).attr('data-type');
+
+    $.post(ajax_url, {
+        object_id: id,
+        type : type,
+        status : status
+    }, function(data){
+        swal('Changed!',
+            'The Item Status has been changed.',
+            'success');
+        location.reload();
+    }).fail(function() {
+        swal('Unable to Change.');
+    });
+
+    swal('You clicked the span ' + id);
+    return false;
+});

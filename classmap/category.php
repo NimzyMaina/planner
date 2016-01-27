@@ -41,5 +41,18 @@ function readName(){
      
     $this->name = $row['name'];
 }
+
+    function readAll(){
+        $query = "SELECT *
+            FROM
+                $this->table_name
+            ORDER BY
+                name ASC";
+
+        $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+
+        return $stmt;
+    }
 }
 ?>

@@ -27,4 +27,7 @@
 //sms('+254724844946','The Planner');
 
 //echo isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'not there';
-print_r($_SESSION);
+//print_r($_SESSION);
+$db = new Database();
+$test = new Test($db->conn);
+echo $test->hello();

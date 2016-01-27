@@ -61,7 +61,7 @@ include 'templates/sidemenu.php';
                 echo "<td>";
                 // edit and delete button is here
                 echo "<a href='update_product.php?id={$id}' class='btn btn-default left-margin'>Edit</a>";
-                echo "<a delete-id='{$id}' class='btn btn-default delete-object'>Delete</a>";
+                echo "<a delete-id='{$id}' delete-type='delete_user' class='btn btn-default delete-object'>Delete</a>";
                 echo "</td>";
 
                 echo "</tr>";

@@ -172,3 +172,30 @@
             return ' active';
         }
     }
+
+    function dropdox($data = array(),$selected = null ){
+
+    }
+
+    function dump($data){
+        echo "<pre>";
+        print_r($data);exit;
+    }
+
+    function upload($file,$num,$dir = "",$name = null){
+        $uploaddir = '../uploads/';
+        $dir = $uploaddir.$dir.'/';
+        $type = $_FILES[$file]['type'][$num];
+        $temp = explode('/', $type);
+        $extension = $temp[1];
+
+        $doc = isset($name) ? $name.'.'.$extension : basename($_FILES[$file]['name'][$num]) ;
+        $uploadfile = $dir.$doc;
+
+        if(move_uploaded_file($_FILES[$file]['tmp_name'][$num],$uploadfile)){
+            return $doc;
+        }else{
+            return false;
+        }
+
+    }

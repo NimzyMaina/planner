@@ -3,6 +3,7 @@
     $db = new Database();
     $user = new User($db->conn);
     $vendor = new Vendor($db->conn);
+    $item = new Item($db->conn);
 
     $isAvailable = false;
 
@@ -28,6 +29,24 @@
 
         case 'vendor_email';
             if($vendor->check_email($_POST['email'])){
+                $isAvailable = true;
+            }
+            break;
+
+        case 'delete_item';
+            if($item->delete($_POST['object_id'])){
+                $isAvailable = true;
+            }
+            break;
+
+        case 'delete_user';
+            if($user->delete($_POST['object_id'])){
+                $isAvailable = true;
+            }
+            break;
+
+        case 'delete_vendor';
+            if($vendor->delete($_POST['object_id'])){
                 $isAvailable = true;
             }
             break;

@@ -170,4 +170,21 @@ class User {
 
         return $num;
     }
+
+    public function delete($id){
+        $query = "UPDATE
+                " . $this->table_name . "
+            SET
+                status = 0
+            WHERE
+                id = $id";//exit;
+
+        $stmt = $this->conn->prepare($query);
+
+        if($stmt->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
