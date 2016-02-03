@@ -109,16 +109,13 @@ $(document).ready(function() {
 $("#example1").DataTable();
 $("#example2").DataTable();
 $("#items").DataTable();
-//$("#itemsd").DataTable({
+//$("#imgTable").DataTable();
+//$("#imgTable").DataTable({
 //    "aoColumnDefs": [{
-//        "aTargets" : [4],
-//        "mRender": function ( status, type, full )  {
+//        "aTargets" : [0],
+//        "mRender": function ( image, type, full )  {
 //            var a;
-//            if(status == 1){
-//                a = '<span class="label label-success" >Active</span>';
-//            }else{
-//                a = '<span class="label label-danger" >Inactive</span>';
-//            }
+//            a = '<img width="200" height="200" class="img-responsive2" src="'+base_url+'/uploads/items/'+image+'">';
 //            return  a;
 //        }
 //    }]
@@ -393,7 +390,5 @@ $(document).on('click', '.toog', function(){
     }).fail(function() {
         swal('Unable to Change.');
     });
-
-    swal('You clicked the span ' + id);
     return false;
 });

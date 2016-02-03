@@ -30,6 +30,7 @@
         var update_vendor = "<?= asset('/admin/updatevendor')?>";
         var google_calender_id ="<?= getenv('CALENDAR_ID')?>";
         var calender_api_key = "<?= getenv('CALENDAR_API_KEY')?>";
+        var base_url = "<?= asset('')?>";
     </script>
 
     <script src="<?= asset ("/js/main.js") ?>"></script>

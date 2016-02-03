@@ -51,6 +51,17 @@
             }
             break;
 
+        case 'toog_item';
+            if($_POST['status'] == 1){
+                $status = 0;
+            }else{
+                $status = 1;
+            }
+            if($item->toogle($_POST['object_id'],$status)){
+                $isAvailable = true;
+            }
+            break;
+
 
     }
 

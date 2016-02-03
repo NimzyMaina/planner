@@ -89,4 +89,46 @@ class Item
         }
     }
 
+    public function toogle($id,$status){
+        $query = "UPDATE
+                " . $this->table_name . "
+            SET
+                status = $status
+            WHERE
+                id = $id";//exit;
+
+        $stmt = $this->conn->prepare($query);
+
+        if($stmt->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    function readOne(){
+
+        $query = "SELECT
+                *
+            FROM
+                " . $this->table_name . "
+            WHERE
+                id = ?
+            LIMIT
+                0,1";
+
+        $stmt = $this->conn->prepare( $query );
+        $stmt->bindParam(1, $this->id);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $this->name = $row['name'];
+        $this->vendor_id = $row['vendor_id'];
+        $this->category_id = $row['category_id'];
+        $this->article = $row['article'];
+        $this->status = $row['status'];
+        $this->images = $row['images'];
+    }
+
 }//class

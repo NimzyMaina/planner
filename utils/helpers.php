@@ -137,7 +137,10 @@
 
     }
 
-    function value($name){
+    function value($name,$switch = false,$var = null){
+        if($switch){
+            return isset($_POST[$var]) ? $_POST[$var] : $name;
+        }
          return isset($_POST[$name]) ? $_POST[$name] : '';
      }
 

@@ -45,7 +45,7 @@ include 'templates/sidemenu.php';
                         echo "<th>Category</th>";
                         echo "<th data-orderable=\"false\">Article</th>";
                         echo "<th data-orderable=\"false\">Status</th>";
-                        echo "<th>Actions</th>";
+                        echo "<th data-orderable=\"false\">Actions</th>";
                         echo "</tr></thead><tbody>";
 
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -62,13 +62,14 @@ include 'templates/sidemenu.php';
                             echo "<td>{$category->name}</td>";
                             echo "<td>{$article}</td>";
                             if($status == 1){
-                                $temp = '<span class="label label-success">Active</span>';
+                                $temp = '<span class="toog label label-success" data-status="'.$status.'" data-id="'.$id.'" data-type="toog_item">Active</span>';
                             }else{
                                 $temp = '<span class="toog label label-danger" data-status="'.$status.'" data-id="'.$id.'" data-type="toog_item">Inactive</span>';
                             }
                             echo '<td>'.$temp.'</td>';
                             echo "<td>";
-                            echo "<a class='btn btn-success'>Edit</a>";
+                            echo "<a href='".asset("/admin/item_edit?id=$id")."' class='btn btn-success'>Edit</a>";
+                            echo '&nbsp;';
                             echo "<a delete-id='{$id}' delete-type='delete_item' class='btn btn-danger delete-object'>Delete</a>";
                             echo "</td>";
 
