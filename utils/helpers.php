@@ -202,3 +202,14 @@
         }
 
     }
+
+    function delete($dir = "",$name = null){
+        $uploaddir = './uploads/';
+        $dir = $uploaddir.$dir.'/';
+        $file = $dir.$name;
+
+        if(unlink($file)){
+            return true;
+        }
+        return false;
+    }

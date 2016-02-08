@@ -18,19 +18,44 @@ $category->id = $item->category_id;
 $category->readName();
 
 //dump($vendors);
-
+//echo $item->images;exit;
 
 
 if($_POST){
+    //dump($_POST);
+    $data = array(
+        'name' => $_POST['name'],
+        'article' => $_POST['article'],
+        'vendor_id' => $_POST['vendor_id'],
+        'category_id' => $_POST['category_id'],
+        'images' => $_FILES['images']['name'],
+        'status' => isset($_POST['status']) ? 1 : 0
+
+    );
+
     //dump($_FILES);
-    $item->name = $_POST['name'];
-    $item->article = $_POST['article'];
-    $item->vendor_id = $_POST['vendor_id'];
-    $item->category_id = $_POST['category_id'];
-    $item->images = $_FILES['images']['name'];
-    $item->status = isset($_POST['status']) ? 1 : 0;
+
+//    if($_FILES['images']['name'] == ''){
+//        echo "no name";
+//    }else{
+//        echo $_FILES['images']['name'][0];
+//    }
+//
+//    exit;
+//    $item->name = $_POST['name'];
+//    $item->article = $_POST['article'];
+//    $item->vendor_id = $_POST['vendor_id'];
+//    $item->category_id = $_POST['category_id'];
+//    $item->images = $_FILES['images']['name'];
+//    $item->status = isset($_POST['status']) ? 1 : 0;
     $num = 0;
-    if(isset($_FILES) && count($_FILES) > 0){
+//    if(empty($_FILES['images']['name'])){
+//        echo 'empty';
+//    }else{
+//        echo "not empty";
+//    }
+//    exit;
+    if($_FILES['images']['name'][0] != ''){
     foreach($_FILES['images']['name'] as $file){
         upload('images',$num,'items');
         $num++;
@@ -39,7 +64,7 @@ if($_POST){
     //exit;
     $state = false;
 
-    if($item->update()){
+    if($item->update($data,$_POST['old'])){
         $state = true;
         unset($_POST);
     }
@@ -87,9 +112,10 @@ include 'templates/sidemenu.php';
                                 }
                             }?>
                             <!-- form start -->
-                            <form role="form" method="post" action="item_add" id="addVendorItemForm" enctype="multipart/form-data">
+                            <form role="form" method="post" action="item_edit?id=<?=$item->id?>" id="addVendorItemForm" enctype="multipart/form-data">
                                     <div class="form-group col-md-7">
                                         <label for="name">Item Name</label>
+                                        <input type="hidden" name="old" value='<?=$item->images?>'>
                                         <input type="name" class="form-control" value="<?=value($item->name,true,'name')?>" id="name" name="name" placeholder="Enter Name">
                                     </div>
                                     <div class="form-group col-md-7">
@@ -128,7 +154,7 @@ include 'templates/sidemenu.php';
                                     </div>
                                     <div class="form-group checkbox icheck col-md-7" style="margin-left: 3px;">
                                         <label  for="status" class="control-label">
-                                            <input name="status" type="checkbox" checked> Visible
+                                            <input name="status" type="checkbox" <?php if(value($item->status,true,'status') == 1){echo 'checked';}?>> Visible
                                         </label>
                                     </div><!--
                             <div class="form-group">
@@ -167,11 +193,16 @@ include 'templates/sidemenu.php';
                                   <td><?php $name = explode('.',$image); echo $name[0];?></td>
                                   <td><?=$name[1]?></td>
                                   <td>
-                                      <a delete-id='<?=$id?>' delete-type='delete_image' class="btn btn-danger btn-flat delete-object">Delete Image <i class="fa fa-remove"></i></a>
+                                      <a delete-id='<?=$item->id.','.$id?>' delete-type='delete_image' class="btn btn-danger btn-flat delete-object">Delete Image <i class="fa fa-remove"></i></a>
                                   </td>
                               </tr>
                             <?php $id ++;}
-
+                            if(count(json_decode($item->images)) == 0){ ?>
+                            <tr>
+                                <td colspan="4">No Images Available</td>
+                            </tr>
+                                <?php
+                            }
                             ?>
                             </table>
                         </div><!-- /.tab-pane -->

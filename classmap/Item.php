@@ -1,4 +1,4 @@
-<?php
+<?php require_once(dirname(__FILE__).'/../vendor/autoload.php');//autoload packages
 
 /**
  * Created by PhpStorm.
@@ -89,6 +89,53 @@ class Item
         }
     }
 
+    function readImages(){
+
+        $query = "SELECT images FROM " . $this->table_name . " WHERE id = ? limit 0,1";
+
+        $stmt = $this->conn->prepare( $query );
+        $stmt->bindParam(1, $this->id);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $this->images = $row['images'];
+    }
+
+    public function deleteImage($id){
+        $temp = explode(',',$id);
+        $item_id = $temp[0];
+        $image_id = $temp[1];
+        $this->id = $item_id;
+        $this->readImages();
+
+        $images = json_decode($this->images);
+        $temp_file = $images[(int)$image_id];
+
+        unset($images[(int)$image_id]);
+        sort($images);
+//        print_r(array('image','images'));
+//        dump($images);
+        $updated = json_encode($images);
+
+        //echo
+        $query = "UPDATE
+                " . $this->table_name . "
+            SET
+                images = '$updated'
+            WHERE
+                id = $item_id";//exit;
+
+        $stmt = $this->conn->prepare($query);
+
+        if($stmt->execute()){
+            delete('items',$temp_file);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     public function toogle($id,$status){
         $query = "UPDATE
                 " . $this->table_name . "
@@ -129,6 +176,36 @@ class Item
         $this->article = $row['article'];
         $this->status = $row['status'];
         $this->images = $row['images'];
+    }
+
+    function update($data = array(),$old){
+        $images = json_decode($old);
+        //echo count($images);exit;
+        if(count($images) > 0 && $images[0] != ''){
+        $updated = array_merge($images,$data['images']);
+        }else{
+            $updated = $data['images'];
+        }
+        $updated = json_encode($updated);
+        $query = "UPDATE
+                " . $this->table_name . "
+            SET
+                name = '".$data['name']."',
+                vendor_id = '".$data['vendor_id']."',
+                category_id = '".$data['category_id']."',
+                article = '".$data['article']."',
+                status = '".$data['status']."',
+                images = '".$updated."'
+            WHERE
+                id = $this->id";//exit;
+
+        $stmt = $this->conn->prepare($query);
+
+        if($stmt->execute()){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }//class

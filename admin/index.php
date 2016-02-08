@@ -3,8 +3,10 @@
 $db = new Database();
 $user = new User($db->conn);
 $vendor = new Vendor($db->conn);
+$item = new Item($db->conn);
 $unum = $user->countAll();
 $vnum = $vendor->countAll();
+$inum = $item->countAll();
 
 include 'templates/header.php';
 include 'templates/sidemenu.php';
@@ -40,7 +42,7 @@ include 'templates/sidemenu.php';
                                 <p>User Registrations</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-person-add"></i>
+                                <i class="ion ion-android-person-add"></i>
                             </div>
                             <a href="<?=asset('/admin/user_list')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
@@ -53,9 +55,39 @@ include 'templates/sidemenu.php';
                                 <p>Registered Vendors</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-bag"></i>
+                                <i class="ion ion-android-people"></i>
                             </div>
                             <a href="<?=asset('/admin/vendor_list')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+
+
+                    </div><!-- ./col -->
+
+                    <div class="col-lg-3 col-xs-6">
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h3><?= $inum?></h3>
+                                <p>Vendor Items</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-filing"></i>
+                            </div>
+                            <a href="<?=asset('/admin/item_list')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+
+
+                    </div><!-- ./col -->
+
+                    <div class="col-lg-3 col-xs-6">
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                <h3><?= $inum?></h3>
+                                <p>Customer Appointments</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-calendar"></i>
+                            </div>
+                            <a href="<?=asset('/admin/calendar')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
 
 

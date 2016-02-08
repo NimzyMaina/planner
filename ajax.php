@@ -51,6 +51,12 @@
             }
             break;
 
+        case 'delete_image';
+            if($item->deleteImage($_POST['object_id'])){
+                $isAvailable = true;
+            }
+            break;
+
         case 'toog_item';
             if($_POST['status'] == 1){
                 $status = 0;
