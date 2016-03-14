@@ -17,11 +17,9 @@ class Category{
     function read(){
         //select all data
         $query = "SELECT
-                    id, name
+                    *
                 FROM
-                    " . $this->table_name . "
-                ORDER BY
-                    name"; 
+                     $this->table_name";
  
         $stmt = $this->conn->prepare( $query );
         $stmt->execute();
@@ -54,5 +52,64 @@ function readName(){
 
         return $stmt;
     }
+
+    function update($field_name,$value,$id){
+        $query = "UPDATE
+                " . $this->table_name . "
+            SET
+                $field_name = '$value'
+            WHERE
+                id = $id";//exit;
+
+        $stmt = $this->conn->prepare($query);
+
+        // $stmt->bindParam(':value', $value);
+        //$stmt->bindParam(':id', $id);
+
+        // execute the query
+        if($stmt->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function toogle($id,$status){
+        $query = "UPDATE
+                " . $this->table_name . "
+            SET
+                status = $status
+            WHERE
+                id = $id";//exit;
+
+        $stmt = $this->conn->prepare($query);
+
+        if($stmt->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function add(){
+        $query = "INSERT INTO
+                    " . $this->table_name . "
+                SET
+                    name = ?, status = ?";
+
+        $stmt = $this->conn->prepare($query);
+
+
+        $stmt->bindParam(1, $this->name);
+        $stmt->bindParam(2, $this->status);
+
+
+        //print_r($stmt);exit;
+        if($stmt->execute()){
+            return true;
+        }
+        return false;
+    }//add
+
 }
 ?>

@@ -53,6 +53,13 @@
                             <li class="<?=child('add')?>"><a href="user_add"><i class="fa fa-circle-o"></i> Add User</a></li>
                         </ul>
                     </li>
+                    <li class="treeview <?=parent('category')?>">
+                        <a href="#"> <i class="fa fa-users"></i> <span>Categories</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li class="<?=child('list')?>"><a href="category_list"><i class="fa fa-circle-o"></i> List Categories</a></li>
+                            <li class="<?=child('add')?>"><a href="category_add"><i class="fa fa-circle-o"></i> Add Category</a></li>
+                        </ul>
+                    </li>
                     <!-- Optionally, you can add icons to the links -->
                     <li><a href="#"><span>Link</span></a></li>
                     <li><a href="#"><span>Another Link</span></a></li>

@@ -28,6 +28,7 @@
         var ajax_url = "<?= asset('/ajax.php')?>";
         var update_user = "<?= asset('/admin/updateuser')?>";
         var update_vendor = "<?= asset('/admin/updatevendor')?>";
+        var update_category = "<?= asset('/admin/updatecategory')?>";
         var google_calender_id ="<?= getenv('CALENDAR_ID')?>";
         var calender_api_key = "<?= getenv('CALENDAR_API_KEY')?>";
         var base_url = "<?= asset('')?>";

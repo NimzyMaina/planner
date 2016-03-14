@@ -57,11 +57,14 @@ include 'templates/sidemenu.php';
                 echo "<td id='email:$id' contenteditable=\"true\">{$email}</td>";
                 echo "<td id='phone:$id' contenteditable=\"true\">{$phone}</td>";
                 echo "<td>{$role}</td>";
-                echo "<td>{$status}</td>";
+                if($status == 1){
+                    $temp = '<span class="toog label label-success" data-status="'.$status.'" data-id="'.$id.'" data-type="toog_item">Active</span>';
+                }else{
+                    $temp = '<span class="toog label label-danger" data-status="'.$status.'" data-id="'.$id.'" data-type="toog_item">Inactive</span>';
+                }
+                echo '<td>'.$temp.'</td>';
                 echo "<td>";
-                // edit and delete button is here
-                echo "<a href='update_product.php?id={$id}' class='btn btn-default left-margin'>Edit</a>";
-                echo "<a delete-id='{$id}' delete-type='delete_user' class='btn btn-default delete-object'>Delete</a>";
+                echo "<a delete-id='{$id}' delete-type='delete_user' class='btn btn-danger delete-object'>Delete</a>";
                 echo "</td>";
 
                 echo "</tr>";

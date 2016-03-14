@@ -208,4 +208,18 @@ class Item
         }
     }
 
+    public function getByIdCat($id){
+        $query = "SELECT *
+            FROM
+                $this->table_name
+                WHERE  category_id = $id
+            ORDER BY
+                name ASC";
+
+        $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+
+        return $stmt;
+    }
+
 }//class
